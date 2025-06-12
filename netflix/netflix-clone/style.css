@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  background: #000;
+  color: #fff;
+}
+
+.hero {
+  position: relative;
+  height: 100vh;
+  background: url('https://assets.nflxext.com/ffe/siteui/vlv3/6ecfba3e-30b0-4d52-a958-31cfed42ac2c/7e2586f5-d1f5-4cd1-8e3f-0b030df72f7b/ZA-en-20240527-popsignuptwoweeks-perspective_alpha_website_large.jpg') center center / cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.logo {
+  width: 150px;
+}
+
+.signin-btn {
+  background-color: #e50914;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.hero-content {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: auto;
+  padding: 0 2rem;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.cta-text {
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+
+.email-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.email-form input {
+  padding: 1rem;
+  font-size: 1rem;
+  width: 300px;
+  border: none;
+  border-radius: 2px;
+}
+
+.email-form button {
+  background-color: #e50914;
+  color: white;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.features {
+  background: #111;
+  padding: 4rem 2rem;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;
+}
+
+.feature.reverse {
+  flex-direction: row-reverse;
+}
+
+.feature img {
+  width: 300px;
+}
+
+.feature div {
+  max-width: 500px;
+}
+
+.feature h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+footer {
+  background-color: #000;
+  color: #ccc;
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+}

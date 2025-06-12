@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Instagram Clone</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  </head>
+<body>
+  <header class="navbar">
+    <div class="logo">Instagram</div>
+    <nav class="nav-icons">
+      <a href="#"><img src="https://img.icons8.com/ios-glyphs/30/ffffff/home.png" alt="Home" title="Home"/></a>
+      <a href="#"><img src="https://img.icons8.com/ios-glyphs/30/ffffff/search.png" alt="Search" title="Search"/></a>
+      <a href="#"><img src="https://img.icons8.com/ios-glyphs/30/ffffff/add.png" alt="New Post" title="Create New Post"/></a>
+      <a href="#"><img src="https://img.icons8.com/ios-glyphs/30/ffffff/like--v1.png" alt="Activity" title="Activity"/></a>
+      <a href="#"><img src="https://randomuser.me/api/portraits/women/1.jpg" class="nav-avatar" alt="Profile" title="Profile"/></a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="feed-section">
+      <div class="stories">
+        <a href="#" class="story">
+          <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Amy's Story"/>
+          <span>Amy</span>
+        </a>
+        <a href="#" class="story">
+          <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Mark's Story"/>
+          <span>Mark</span>
+        </a>
+        <a href="#" class="story">
+          <img src="https://randomuser.me/api/portraits/women/4.jpg" alt="Lina's Story"/>
+          <span>Lina</span>
+        </a>
+        <a href="#" class="story">
+          <img src="https://randomuser.me/api/portraits/men/5.jpg" alt="Jake's Story"/>
+          <span>Jake</span>
+        </a>
+        <a href="#" class="story">
+          <img src="https://randomuser.me/api/portraits/women/6.jpg" alt="Mia's Story"/>
+          <span>Mia</span>
+        </a>
+        <a href="#" class="story">
+          <img src="https://randomuser.me/api/portraits/men/7.jpg" alt="Chris's Story"/>
+          <span>Chris</span>
+        </a>
+      </div>
+
+      <div class="feed">
+        <article class="post">
+          <div class="post-header">
+            <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Amy's Profile Picture" class="post-avatar"/>
+            <a href="#" class="post-username">Amy</a>
+            <button class="follow-button">Follow</button>
+          </div>
+          <img class="post-img" src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D" alt="Person working on a laptop with code on screen" />
+          <div class="post-actions">
+            <div>
+              <button class="action-button"><img src="https://img.icons8.com/ios-glyphs/24/ffffff/like--v1.png" alt="Like Post"/></button>
+              <button class="action-button"><img src="https://img.icons8.com/ios-glyphs/24/ffffff/topic.png" alt="Comment on Post"/></button>
+              <button class="action-button"><img src="https://img.icons8.com/ios-glyphs/24/ffffff/paper-plane.png" alt="Share Post"/></button>
+            </div>
+            <button class="action-button"><img src="https://img.icons8.com/ios-glyphs/24/ffffff/bookmark--v1.png" alt="Save Post"/></button>
+          </div>
+          <div class="post-likes">
+            Liked by <strong>you</strong> and <strong>1,245 others</strong>
+          </div>
+          <div class="post-caption">
+            <a href="#" class="post-username"><strong>Amy</strong></a> Loving my new setup! 🔥💻 #coding
+          </div>
+          <div class="post-comments-info">
+            <a href="#">View all 123 comments</a>
+          </div>
+          <div class="post-comment">
+            <a href="#" class="comment-username"><strong>JohnDoe</strong></a> Looks awesome! Keep up the great work.
+          </div>
+          <div class="post-comment-input">
+            <input type="text" placeholder="Add a comment..." aria-label="Add a comment"/>
+            <button class="post-comment-button">Post</button>
+          </div>
+        </article>
+
+        <article class="post">
+          <div class="post-header">
+            <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Mark's Profile Picture" class="post-avatar"/>
+            <a href="#" class="post-username">Mark</a>
+            <button class="follow-button">Follow</button>
+          </div>
+          <img class="post-img" src="https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmlrZXxlbnwwfHwwfHx8MA%3D%3D" alt="Person riding a bicycle during sunset" />
+          <div class="post-actions">
+            <div>
+              <button class="action-button"><img src="https://img.icons8.com/ios-glyphs/24/ffffff/like--v1.png" alt="Like Post"/></button>
+              <button class="action-button"><img src="https://img.icons8.com/ios-glyphs/24/ffffff/topic.png" alt="Comment on Post"/></button>
+              <button class="action-button"><img src="https://img.icons8.com/ios-glyphs/24/ffffff/paper-plane.png" alt="Share Post"/></button>
+            </div>
+            <button class="action-button"><img src="https://img.icons8.com/ios-glyphs/24/ffffff/bookmark--v1.png" alt="Save Post"/></button>
+          </div>
+          <div class="post-likes">
+            Liked by <strong>Mike</strong> and <strong>567 others</strong>
+          </div>
+          <div class="post-caption">
+            <a href="#" class="post-username"><strong>Mark</strong></a> Sunset rides are the best 🌅🚲 #cycling #sunset
+          </div>
+          <div class="post-comments-info">
+            <a href="#">View all 45 comments</a>
+          </div>
+          <div class="post-comment">
+            <a href="#" class="comment-username"><strong>SarahP</strong></a> So peaceful! Where is this?
+          </div>
+          <div class="post-comment-input">
+            <input type="text" placeholder="Add a comment..." aria-label="Add a comment"/>
+            <button class="post-comment-button">Post</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <aside class="sidebar">
+      <div class="user-profile-summary">
+        <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="Your Profile Picture" class="sidebar-avatar"/>
+        <div class="user-info">
+          <a href="#" class="sidebar-username">your_username</a>
+          <span class="sidebar-fullname">Your Name</span>
+        </div>
+        <button class="switch-account-button">Switch</button>
+      </div>
+
+      <div class="suggestions-for-you">
+        <div class="suggestions-header">
+          <span>Suggestions For You</span>
+          <a href="#">See All</a>
+        </div>
+        <div class="suggestion-item">
+          <img src="https://randomuser.me/api/portraits/men/8.jpg" alt="Suggested User" class="sidebar-avatar"/>
+          <div class="suggestion-info">
+            <a href="#" class="sidebar-username">tech_guru</a>
+            <span class="suggestion-text">Follows you</span>
+          </div>
+          <button class="follow-button">Follow</button>
+        </div>
+        <div class="suggestion-item">
+          <img src="https://randomuser.me/api/portraits/women/9.jpg" alt="Suggested User" class="sidebar-avatar"/>
+          <div class="suggestion-info">
+            <a href="#" class="sidebar-username">artistic_soul</a>
+            <span class="suggestion-text">Suggested for you</span>
+          </div>
+          <button class="follow-button">Follow</button>
+        </div>
+        <div class="suggestion-item">
+          <img src="https://randomuser.me/api/portraits/men/10.jpg" alt="Suggested User" class="sidebar-avatar"/>
+          <div class="suggestion-info">
+            <a href="#" class="sidebar-username">foodie_explorer</a>
+            <span class="suggestion-text">New to Instagram</span>
+          </div>
+          <button class="follow-button">Follow</button>
+        </div>
+      </div>
+
+      <footer class="sidebar-footer">
+        <p><a href="#">About</a> &bull; <a href="#">Help</a> &bull; <a href="#">Press</a> &bull; <a href="#">API</a> &bull; <a href="#">Jobs</a> &bull; <a href="#">Privacy</a> &bull; <a href="#">Terms</a> &bull; <a href="#">Locations</a> &bull; <a href="#">Language</a></p>
+        <p>&copy; 2025 Instagram from Meta</p>
+      </footer>
+    </aside>
+  </main>
+</body>
+</html>

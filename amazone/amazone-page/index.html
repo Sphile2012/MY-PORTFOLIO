@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Amazon-like Landing Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #eaeded;
+    }
+    .card-shadow {
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+    .product-image {
+      width: 100%;
+      height: 180px;
+      object-fit: contain;
+      background-color: white;
+      padding: 10px;
+    }
+    .hero-section {
+      height: 400px;
+      background-size: cover;
+      background-position: center;
+      margin-bottom: -150px;
+      position: relative;
+      z-index: 1;
+      mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    }
+    .btn-gradient {
+      background-image: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+      border-color: #a88734 #9c7e31 #846a29;
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset;
+    }
+    .btn-gradient:hover {
+      background-image: linear-gradient(to bottom, #f5d78e, #eeb933);
+    }
+    .star-rating .fas.fa-star {
+      color: #FFD700;
+    }
+  </style>
+</head>
+<body class="text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-gray-900 text-white py-2 px-4 flex items-center justify-between sticky top-0 z-50">
+    <div class="flex items-center space-x-2">
+      <div class="mr-4">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo" class="h-6">
+      </div>
+      <div class="hidden md:flex items-center space-x-1 hover:border border-transparent rounded p-1 cursor-pointer">
+        <i class="fas fa-map-marker-alt text-gray-400 text-sm"></i>
+        <div>
+          <p class="text-xs text-gray-400 leading-none">Deliver to</p>
+          <p class="font-bold text-sm leading-none">South Africa</p>
+        </div>
+      </div>
+    </div>
+    <div class="flex-grow mx-4">
+      <div class="relative flex items-center">
+        <input type="text" placeholder="Search Amazon" class="w-full p-2 pl-4 rounded-l-md text-black focus:outline-none focus:ring-2 focus:ring-yellow-500">
+        <button class="bg-yellow-500 hover:bg-yellow-600 p-2 rounded-r-md text-black">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </div>
+    <div class="flex items-center space-x-4">
+      <div class="hidden md:flex items-center hover:border border-transparent rounded p-1 cursor-pointer">
+        <img src="https://flagcdn.com/w40/za.png" alt="EN" class="h-3.5 mr-1">
+        <p class="text-sm font-semibold">EN</p>
+      </div>
+      <div class="hover:border border-transparent rounded p-1 cursor-pointer">
+        <p class="text-xs">Hello, Sign in</p>
+        <p class="font-bold text-sm">Account & Lists <i class="fas fa-caret-down text-xs ml-1"></i></p>
+      </div>
+      <div class="hidden sm:block hover:border border-transparent rounded p-1 cursor-pointer">
+        <p class="text-xs">Returns</p>
+        <p class="font-bold text-sm">& Orders</p>
+      </div>
+      <div class="flex items-center hover:border border-transparent rounded p-1 cursor-pointer">
+        <i class="fas fa-shopping-cart text-2xl mr-1"></i>
+        <span class="text-yellow-500 font-bold text-lg hidden sm:block">0</span>
+        <p class="text-sm font-bold ml-1 hidden sm:block">Cart</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sub-nav -->
+  <nav class="bg-gray-800 text-white text-sm py-2 px-4 flex items-center space-x-4 overflow-x-auto whitespace-nowrap">
+    <a href="#" class="hover:border border-transparent rounded px-2 py-1"><i class="fas fa-bars mr-1"></i> All</a>
+    <a href="#" class="hover:border border-transparent rounded px-2 py-1">Prime Video</a>
+    <a href="#" class="hover:border border-transparent rounded px-2 py-1">Best Sellers</a>
+    <a href="#" class="hover:border border-transparent rounded px-2 py-1">Amazon Basics</a>
+    <a href="#" class="hover:border border-transparent rounded px-2 py-1">New Releases</a>
+    <a href="#" class="hover:border border-transparent rounded px-2 py-1">Customer Service</a>
+    <a href="#" class="hover:border border-transparent rounded px-2 py-1">Today's Deals</a>
+    <a href="#" class="hover:border border-transparent rounded px-2 py-1">Books</a>
+    <a href="#" class="hover:border border-transparent rounded px-2 py-1">Electronics</a>
+    <a href="#" class="hover:border border-transparent rounded px-2 py-1">Fashion</a>
+    <a href="#" class="hover:border border-transparent rounded px-2 py-1">Home & Kitchen</a>
+  </nav>
+
+  <!-- Hero -->
+  <div class="hero-section" style="background-image: url('https://images.unsplash.com/photo-1606813902914-d51851e1b293?auto=format&fit=crop&w=1600&q=80');"></div>
+
+  <!-- Main content -->
+  <main class="container mx-auto px-4 -mt-32 relative z-20">
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-8">
+
+      <!-- Card 1 -->
+      <div class="bg-white rounded-lg p-6 card-shadow">
+        <h2 class="text-lg font-bold mb-4">Shop by Category</h2>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="flex flex-col items-center">
+            <img src="https://images.unsplash.com/photo-1587202372775-9895d4f6f2d1?auto=format&fit=crop&w=100&q=80" alt="Computers" class="rounded-md mb-2">
+            <p class="text-sm text-gray-700 text-center">Computers & Accessories</p>
+          </div>
+          <div class="flex flex-col items-center">
+            <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=100&q=80" alt="Electronics" class="rounded-md mb-2">
+            <p class="text-sm text-gray-700 text-center">Electronics</p>
+          </div>
+          <div class="flex flex-col items-center">
+            <img src="https://images.unsplash.com/photo-1600585154084-5c4b5fefcfd1?auto=format&fit=crop&w=100&q=80" alt="Home" class="rounded-md mb-2">
+            <p class="text-sm text-gray-700 text-center">Home & Kitchen</p>
+          </div>
+          <div class="flex flex-col items-center">
+            <img src="https://images.unsplash.com/photo-1618354691373-08edb0565b72?auto=format&fit=crop&w=100&q=80" alt="Fashion" class="rounded-md mb-2">
+            <p class="text-sm text-gray-700 text-center">Fashion</p>
+          </div>
+        </div>
+        <a href="#" class="text-blue-600 hover:text-blue-700 text-sm mt-4 block">See more</a>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white rounded-lg p-6 card-shadow">
+        <h2 class="text-lg font-bold mb-4">Deals on Electronics</h2>
+        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80" alt="Laptop Deal" class="product-image rounded-md mb-4">
+        <p class="text-sm text-gray-700 mb-2">Save up to 30% on top brands!</p>
+        <a href="#" class="text-blue-600 hover:text-blue-700 text-sm mt-auto block">Shop now</a>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white rounded-lg p-6 card-shadow">
+        <h2 class="text-lg font-bold mb-4">New Arrivals in Books</h2>
+        <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=400&q=80" alt="Books" class="product-image rounded-md mb-4">
+        <p class="text-sm text-gray-700 mb-2">Discover your next favorite read.</p>
+        <a href="#" class="text-blue-600 hover:text-blue-700 text-sm mt-auto block">Explore books</a>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="bg-white rounded-lg p-6 card-shadow flex flex-col justify-between">
+        <h2 class="text-lg font-bold mb-4">Sign in for best experience</h2>
+        <button class="btn-gradient text-sm font-semibold py-2 px-4 rounded w-full text-center">Sign in securely</button>
+        <img src="https://images.unsplash.com/photo-1603201667141-6592ed77f577?auto=format&fit=crop&w=400&q=80" alt="Sign In" class="product-image mt-4 rounded-md">
+      </div>
+
+    </section>
+  </main>
+
+</body>
+</html>

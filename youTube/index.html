@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>youTube</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f0f0f;
+      color: white;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      background: #181818;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      width: 40px;
+      margin-right: 10px;
+    }
+
+    .search-bar {
+      width: 40%;
+      padding: 8px;
+      border-radius: 4px;
+      border: none;
+    }
+
+    .user-menu {
+      display: flex;
+      align-items: center;
+      gap: 15px; /* Space between avatar and buttons */
+    }
+
+    .user-menu img {
+      width: 35px;
+      border-radius: 50%;
+    }
+
+    .user-menu button {
+      padding: 8px 15px;
+      border: 1px solid #3ea6ff; /* YouTube-like blue border */
+      background: none;
+      color: #3ea6ff; /* YouTube-like blue text */
+      border-radius: 2px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.2s;
+    }
+
+    .user-menu button:hover {
+      background-color: rgba(62, 166, 255, 0.1); /* Light blue hover effect */
+    }
+
+    .sidebar {
+      width: 200px;
+      background: #202020;
+      height: 100vh;
+      padding-top: 20px;
+      position: fixed;
+      top: 60px;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar a {
+      padding: 15px 20px;
+      color: white;
+      text-decoration: none;
+    }
+
+    .sidebar a:hover {
+      background: #383838;
+    }
+
+    .main-content {
+      margin-left: 220px;
+      padding: 20px;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .video-card {
+      background: #1e1e1e;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .video-card iframe,
+    .video-card img {
+      width: 100%;
+      height: 170px;
+    }
+
+    .video-info {
+      display: flex;
+      padding: 10px;
+    }
+
+    .channel-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .video-actions {
+      display: flex;
+      gap: 10px;
+      margin: 10px 0;
+    }
+
+    .video-actions button {
+      padding: 8px 12px;
+      border: none;
+      background: #333;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .comments-section {
+      margin-top: 20px;
+    }
+
+    .comment-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .comment-box input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 4px;
+      border: none;
+      background: #222;
+      color: white;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1001; /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: #282828;
+      margin: auto;
+      padding: 30px;
+      border-radius: 8px;
+      width: 350px;
+      max-width: 90%;
+      position: relative;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .modal-content h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #fff;
+    }
+
+    .modal-content label {
+      display: block;
+      margin-bottom: 8px;
+      color: #aaa;
+      font-size: 0.9em;
+    }
+
+    .modal-content input[type="text"],
+    .modal-content input[type="email"],
+    .modal-content input[type="password"] {
+      width: calc(100% - 20px); /* Account for padding */
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #444;
+      border-radius: 4px;
+      background-color: #333;
+      color: white;
+      font-size: 1em;
+    }
+
+    .modal-content input[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      background-color: #3ea6ff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1.1em;
+      font-weight: bold;
+      transition: background-color 0.2s;
+    }
+
+    .modal-content input[type="submit"]:hover {
+      background-color: #2c8ed6;
+    }
+
+    .close-button {
+      color: #aaa;
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close-button:hover,
+    .close-button:focus {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        display: none;
+      }
+
+      .main-content {
+        margin-left: 0;
+      }
+
+      .search-bar {
+        width: 60%; /* Adjust for smaller screens */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">
+      <img src="https://img.icons8.com/color/48/youtube-play.png" alt="youTube Logo" />
+      <span><strong>youTube</strong></span>
+    </div>
+    <input type="text" placeholder="Search..." class="search-bar" />
+    <div class="user-menu">
+      <button id="loginBtn">Login</button>
+      <button id="signupBtn">Sign Up</button>
+      <img src="https://i.pravatar.cc/40?img=3" class="avatar" alt="User" />
+    </div>
+  </header>
+
+  <aside class="sidebar">
+    <a href="#">🏠 Home</a>
+    <a href="#">📺 Your Channel</a>
+    <a href="#">🔥 Trending</a>
+    <a href="#">📜 Subscriptions</a>
+    <a href="#">🎥 Library</a>
+    <a href="#">🕒 History</a>
+  </aside>
+
+  <main class="main-content">
+    <div class="video-grid">
+
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/E7wJTI-1dvQ" frameborder="0" allowfullscreen></iframe>
+        <div class="video-info">
+          <img src="https://i.pravatar.cc/36?img=5" class="channel-avatar" />
+          <div>
+            <h4>Intro to HTML for Beginners</h4>
+            <p>CodeWithPhumeh</p>
+            <p>15K views • 1 week ago</p>
+          </div>
+        </div>
+        <div class="video-actions">
+          <button>👍 Like</button>
+          <button>💬 Comment</button>
+          <button>🔗 Share</button>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/Ke90Tje7VS0" frameborder="0" allowfullscreen></iframe>
+        <div class="video-info">
+          <img src="https://i.pravatar.cc/36?img=8" class="channel-avatar" />
+          <div>
+            <h4>React JS Crash Course</h4>
+            <p>LearnWithPhume</p>
+            <p>230K views • 3 months ago</p>
+          </div>
+        </div>
+        <div class="video-actions">
+          <button>👍 Like</button>
+          <button>💬 Comment</button>
+          <button>🔗 Share</button>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/f02mOEt11OQ" frameborder="0" allowfullscreen></iframe>
+        <div class="video-info">
+          <img src="https://i.pravatar.cc/36?img=10" class="channel-avatar" />
+          <div>
+            <h4>My Coding Bootcamp Journey</h4>
+            <p>Phumeh Dev</p>
+            <p>1.2K views • 4 days ago</p>
+          </div>
+        </div>
+        <div class="video-actions">
+          <button>👍 Like</button>
+          <button>💬 Comment</button>
+          <button>🔗 Share</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="comments-section">
+      <h3>Comments</h3>
+      <div class="comment-box">
+        <img src="https://i.pravatar.cc/36?img=6" />
+        <input type="text" placeholder="Add a public comment..." />
+      </div>
+    </div>
+  </main>
+
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button" id="closeLogin">&times;</span>
+      <h2>Login to youTube</h2>
+      <form>
+        <label for="loginUsername">Username or Email:</label>
+        <input type="text" id="loginUsername" name="loginUsername" required>
+
+        <label for="loginPassword">Password:</label>
+        <input type="password" id="loginPassword" name="loginPassword" required>
+
+        <input type="submit" value="Login">
+      </form>
+    </div>
+  </div>
+
+  <div id="signupModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button" id="closeSignup">&times;</span>
+      <h2>Join youTube</h2>
+      <form>
+        <label for="signupUsername">Username:</label>
+        <input type="text" id="signupUsername" name="signupUsername" required>
+
+        <label for="signupEmail">Email:</label>
+        <input type="email" id="signupEmail" name="signupEmail" required>
+
+        <label for="signupPassword">Password:</label>
+        <input type="password" id="signupPassword" name="signupPassword" required>
+
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+        <input type="submit" value="Sign Up">
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Get the modals
+    const loginModal = document.getElementById('loginModal');
+    const signupModal = document.getElementById('signupModal');
+
+    // Get the buttons that open the modals
+    const loginBtn = document.getElementById('loginBtn');
+    const signupBtn = document.getElementById('signupBtn');
+
+    // Get the <span> elements that close the modals
+    const closeLogin = document.getElementById('closeLogin');
+    const closeSignup = document.getElementById('closeSignup');
+
+    // When the user clicks the login button, open the login modal
+    loginBtn.onclick = function() {
+      loginModal.style.display = 'flex'; // Use flex to center the modal
+    }
+
+    // When the user clicks the sign up button, open the sign up modal
+    signupBtn.onclick = function() {
+      signupModal.style.display = 'flex'; // Use flex to center the modal
+    }
+
+    // When the user clicks on <span> (x), close the login modal
+    closeLogin.onclick = function() {
+      loginModal.style.display = 'none';
+    }
+
+    // When the user clicks on <span> (x), close the sign up modal
+    closeSignup.onclick = function() {
+      signupModal.style.display = 'none';
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == loginModal) {
+        loginModal.style.display = 'none';
+      }
+      if (event.target == signupModal) {
+        signupModal.style.display = 'none';
+      }
+    }
+  </script>
+
+</body>
+</html>
